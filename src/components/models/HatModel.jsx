@@ -13,27 +13,19 @@ const HatModel = React.memo(function HatModel(props) {
   const modelRef = useRef();
 
   useFrame(() => {
-    modelRef.current.rotation.y += 0.007;
+    modelRef.current.rotation.y += 0.02;
   });
+  
   return (
-    <group
-      {...props}
-      dispose={null}
-      ref={modelRef}
-      scale={[1.8, 1.8, 1.8]}
-      rotation={[0.4, -1, 0]}
-      position={[0, 0, 0]}
-    >
+    <group ref={modelRef} {...props} dispose={null}>
       <mesh
         castShadow
         receiveShadow
-        geometry={nodes.Object_2.geometry}
-        material={materials.initialShadingGroup}
-        position={[0, -3.867, 0]}
-        rotation={[-Math.PI / 2, 0, 0]}
+        geometry={nodes.mesh_0.geometry}
+        material={nodes.mesh_0.material}
       />
     </group>
-  );
+  )  
 });
 
 export default HatModel;
